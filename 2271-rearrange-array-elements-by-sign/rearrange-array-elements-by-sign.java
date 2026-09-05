@@ -3,23 +3,30 @@ import java.util.ArrayList;
 class Solution {
     public int[] rearrangeArray(int[] nums) {
         int n=nums.length;
-        ArrayList<Integer> negArray= new ArrayList<>();
-        ArrayList<Integer> posArray= new ArrayList<>();
+        int[] posArray=new int[n/2];
+        int[] negArray=new int[n/2];
+
+        int j=0;
        
         for(int i=0;i<n;i++){
             if(nums[i]<0){
-                negArray.add(nums[i]);
+                negArray[j]=nums[i];
+                j++;
 
             }
-            else{
-                posArray.add(nums[i]);
+        }
+        j=0;
+        for(int i=0;i<n;i++){
+            if(nums[i]>0){
+                posArray[j]=nums[i];
+                j++;
             }
         }
-        int j=0;
+        j=0;
         for(int i=0;i<n/2;i++){
-            nums[j]=posArray.get(i);
+            nums[j]=posArray[i];
             j++;
-            nums[j]=negArray.get(i);
+            nums[j]=negArray[i];
             j++;
         }
         return nums;
