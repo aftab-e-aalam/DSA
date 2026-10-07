@@ -14,15 +14,26 @@ public class Solution {
         Set<ListNode> set=new HashSet<>();
         ListNode slow=head;
         ListNode fast=head;
+        ListNode t=head;
+        boolean hasCycle=false;
 
-        while(head != null){
-            if(set.contains(head)){
-                return head;
+        while(fast!= null && fast.next != null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                hasCycle=true;
+                break;
             }
-            set.add(head);
-            head=head.next;
         }
-        return null;
+        if(!hasCycle){
+            return null;
+        }
+        while(slow != t){
+            slow=slow.next;
+            t=t.next;
+        
+        }
+        return t;
         
     }
 }
