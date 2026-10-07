@@ -11,7 +11,7 @@
  */
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        Set<ListNode> set=new HashSet<>();
+       
         ListNode slow=head;
         ListNode fast=head;
         ListNode t=head;
