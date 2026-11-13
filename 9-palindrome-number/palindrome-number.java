@@ -3,18 +3,18 @@ class Solution {
         if(x < 0 ){
             return false;
         }
-        long num1 = x;
-        long num2 =0;
-        while(x>0){
-            num2 += x%10;
-            num2 *= 10;
-            x /= 10;
-        }
-        num2 /= 10;
-        if(num1 == num2){
-            return true;
+        String s = Integer.toString(x);
+        int i=0;
+        int j = s.length()-1;
+        
+        while(i<j){
+            if(s.charAt(i) != s.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
         }
         
-        return false;
+        return true;
     }
 }
